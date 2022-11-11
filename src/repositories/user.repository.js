@@ -1,7 +1,7 @@
 const BaseRepository = require("./base.repository");
 let _user = null;
 
-class UserRespository extends BaseRepository {
+class UserRepository extends BaseRepository {
   constructor({ User }) {
     super(User);
     _user = User;
@@ -12,4 +12,4 @@ class UserRespository extends BaseRepository {
   }
 }
 
-module.exports = UserRespository;
+module.exports = UserRepository;
