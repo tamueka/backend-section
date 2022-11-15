@@ -15,7 +15,7 @@ class UserService extends BaseService {
       throw error;
     }
 
-    return await this._userRepository.getUserByUserName(username);
+    return await _userRepository.getUserByUserName(username);
   }
 }
 
