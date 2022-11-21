@@ -11,6 +11,8 @@ class BaseService {
       throw error;
     }
 
+    const currentEntity = await this.repository.get(id);
+
     if (!currentEntity) {
       const error = new Error();
       error.status = 404;
