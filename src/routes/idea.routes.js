@@ -6,12 +6,12 @@ module.exports = function ({ IdeaController }) {
 
   router.get("", [ParseIntMiddleware], IdeaController.getAll);
   router.get("/:ideaId", IdeaController.get);
-  router.post("", IdeaController.create);
-  router.get("/:ideaId", IdeaController.update);
-  router.get("/:ideaId", IdeaController.delete);
   router.get("/:userId/all", IdeaController.getUserIdeas);
-  router.post("/:ideaId/upvote", IdeaController.upvoteIdea);
-  router.post("/:ideaId/downvote", IdeaController.downvoteIdea);
+  router.post("", IdeaController.create);
+  router.patch("/:ideaId", AuthMiddleware, IdeaController.delete);
+  router.delete("/:ideaId", AuthMiddleware, IdeaController.update);
+  router.post("/:ideaId/upvote", AuthMiddleware, IdeaController.upvoteIdea);
+  router.post("/:ideaId/downvote", AuthMiddleware, IdeaController.downvoteIdea);
 
   return router;
 };

@@ -16,8 +16,8 @@ module.exports = function ({ UserController }) {
     [AuthMiddleware, ParseIntMiddleware, CacheMiddleware(CACHE_TIME.ONE_HOUR)],
     UserController.getAll
   );
-  router.patch("/:userId", UserController.update);
-  router.delete("/:userId", UserController.delete);
+  router.patch("/:userId", AuthMiddleware, UserController.update);
+  router.delete("/:userId", AuthMiddleware, UserController.delete);
 
   return router;
 };
