@@ -10,12 +10,12 @@ const { CACHE_TIME } = require("../helpers");
 module.exports = function ({ UserController }) {
   const router = Router();
 
-  router.get("/:userId", UserController.get);
   router.get(
     "",
-    [AuthMiddleware, ParseIntMiddleware, CacheMiddleware(CACHE_TIME.ONE_HOUR)],
+    [ParseIntMiddleware, CacheMiddleware(CACHE_TIME.ONE_HOUR)],
     UserController.getAll
   );
+  router.get("/:userId", UserController.get);
   router.patch("/:userId", AuthMiddleware, UserController.update);
   router.delete("/:userId", AuthMiddleware, UserController.delete);
 

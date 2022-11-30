@@ -15,7 +15,7 @@ class IdeaService extends BaseService {
       throw error;
     }
 
-    return await this._ideaRepository.getUserIdeas(author);
+    return await _ideaRepository.getUserIdeas(author);
   }
 
   async upvoteIdea(ideaId) {
